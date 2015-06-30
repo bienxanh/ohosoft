@@ -13,7 +13,7 @@
 	<!-- Config for UTF-8 resource bundle -->
 	<application>
 		<resource-bundle>
-			<base-name>com.aviva.ResourceBundle</base-name>
+			<base-name>com.oho.ResourceBundle</base-name>
 			<var>bundle</var>
 		</resource-bundle>
 	</application>
@@ -28,12 +28,8 @@
 
 	<managed-bean>
 		<managed-bean-name>login</managed-bean-name>
-		<managed-bean-class>com.aviva.bean.Login</managed-bean-class>
+		<managed-bean-class>com.oho.bean.Login</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
-		<managed-property>
-			<property-name>context</property-name>
-			<value>#{context}</value>
-		</managed-property>
 	</managed-bean>
 
 	<!-- END Config for JSF bean -->

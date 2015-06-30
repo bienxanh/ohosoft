@@ -100,10 +100,10 @@
 #header {
   background: url(../images/logo.png) left bottom no-repeat;
   position: relative;
-  height: 70px;
+  height: 100px;
   width: 460px;
-  bottom:0px;
-  left:0px;
+  bottom: 0px;
+  left: 180px;
 }
 
 #header-app-info {

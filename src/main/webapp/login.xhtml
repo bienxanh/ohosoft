@@ -10,7 +10,7 @@
 <h:body>
   <ui:composition template="template/Layout.xhtml">
     <ui:define name="title">
-      #{bundle['login.title']}
+      Oho Welcome !
     </ui:define>
     
     <ui:define name="header">
@@ -26,7 +26,6 @@
     <ui:define name="content">
       <h:form prependId="false" id="form">
         <div class="primary">
-          <h2 class="title">#{bundle['login.title']} #{bundle['header.label.app-name']} #{global.appVersion}</h2>
           <div class="mainContent">
           <p:panel id="panel" style="border: none;">
             <div id="main" class="clearfix">
@@ -35,19 +34,19 @@
               <table>
                 <tbody>
                   <tr>
-                    <td><h:outputText value="#{bundle['login.label.username']}" for="username"/>:</td>
-                    <td><h:inputText id="username" required="true" value="#{login.username}" requiredMessage="#{bundle['login.msg.require-username']}"/></td>
+                    <td><h:outputText value="User name" for="username"/>:</td>
+                    <td><h:inputText id="username" required="true" value="#{login.username}" requiredMessage="Nhap username"/></td>
                   </tr>
                   <tr>
-                    <td><h:outputText value="#{bundle['login.label.password']}" for="password"/>:</td>
-                    <td><h:inputSecret id="password" required="true" value="#{login.password}" requiredMessage="#{bundle['login.msg.require-password']}"/></td>
+                    <td><h:outputText value="Password" for="password"/>:</td>
+                    <td><h:inputSecret id="password" required="true" value="#{login.password}" requiredMessage="Nhap password"/></td>
                   </tr>
                   <tr>
-                    <td colspan="2" align="center"><p:commandButton value="#{bundle['login.label.submit']}" action="#{login.login}" update="@all"/></td>
+                    <td colspan="2" align="center"><p:commandButton value="Login" action="#{login.login}" update="@all"/></td>
                   </tr>
                   <tr>
                   	<td colspan="2" align="center">
-                 		<h:link value="#{bundle['requestNewPassword.label.link']}" outcome="/clms/requestNewPassword" class="actuator" />
+                 		<h:link value="Request new password" outcome="/clms/requestNewPassword" class="actuator" />
                   	</td>
                   </tr>
                 </tbody>

@@ -12,18 +12,6 @@
 <h:body>
   <ui:composition>
   <div id="header"></div>
-  <div id="user_info_list">
-    <h:panelGroup rendered="#{global.loggedIn}">
-    	<p:menubar styleClass="rightMenuBar_ext">
-    		<p:submenu label="#{bundle['header.label.account']}: #{global.loggedInUsername}">
-    			<sec:ifAnyGranted roles="MENU_CHANGE_PASSWORD">
-	            	<p:menuitem value="#{bundle['menu.label.change-password']}" url="/clms/changePassword.xhtml"/>
-	            </sec:ifAnyGranted>
-	            <p:menuitem value="Đăng xuất" url="#{request.contextPath}/j_spring_security_logout" />
-        	</p:submenu>
-    	</p:menubar>
-    </h:panelGroup>
-  </div>
   </ui:composition>
 </h:body>
 </html>
