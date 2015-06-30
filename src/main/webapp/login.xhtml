@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:h="http://java.sun.com/jsf/html" 
+  xmlns:f="http://java.sun.com/jsf/core" 
+  xmlns:p="http://primefaces.org/ui" 
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+  <ui:composition template="template/Layout.xhtml">
+    <ui:define name="title">
+      #{bundle['login.title']}
+    </ui:define>
+    
+    <ui:define name="header">
+      <div id="header">
+      </div>
+    </ui:define>
+    
+    <ui:define name="menu">
+      <div class="left">          
+      </div>
+    </ui:define>
+
+    <ui:define name="content">
+      <h:form prependId="false" id="form">
+        <div class="primary">
+          <h2 class="title">#{bundle['login.title']} #{bundle['header.label.app-name']} #{global.appVersion}</h2>
+          <div class="mainContent">
+          <p:panel id="panel" style="border: none;">
+            <div id="main" class="clearfix">
+            <p:focus context="panel"/>
+              <p:messages errorClass="error" infoClass="info" closable="true"/>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><h:outputText value="#{bundle['login.label.username']}" for="username"/>:</td>
+                    <td><h:inputText id="username" required="true" value="#{login.username}" requiredMessage="#{bundle['login.msg.require-username']}"/></td>
+                  </tr>
+                  <tr>
+                    <td><h:outputText value="#{bundle['login.label.password']}" for="password"/>:</td>
+                    <td><h:inputSecret id="password" required="true" value="#{login.password}" requiredMessage="#{bundle['login.msg.require-password']}"/></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="center"><p:commandButton value="#{bundle['login.label.submit']}" action="#{login.login}" update="@all"/></td>
+                  </tr>
+                  <tr>
+                  	<td colspan="2" align="center">
+                 		<h:link value="#{bundle['requestNewPassword.label.link']}" outcome="/clms/requestNewPassword" class="actuator" />
+                  	</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </p:panel>
+          </div>
+        </div>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+</h:body>
+</html>

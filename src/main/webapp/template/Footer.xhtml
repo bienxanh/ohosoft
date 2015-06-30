@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:h="http://java.sun.com/jsf/html" 
+  xmlns:f="http://java.sun.com/jsf/core" 
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+  <ui:composition>
+  <div id="footer">
+    <table style="width:100%; border-spacing: 0px; border-collapse: separate;">
+      <tr>
+        <td>
+          <a href="http://vietinbank.com/" title="Vietinbank"><img src="#{request.contextPath}/images/adv/adv1.jpg" alt="" style="padding:0px;"/></a>
+        </td>
+        <td align="right">
+          <a href="http://www.aviva.com/" title="Aviva"><img src="#{request.contextPath}/images/adv/adv2.jpg" alt="" style="padding:0px;"/></a>
+        </td>
+      </tr>
+      <tr class="address">
+        <td class="address">
+          <p>#{bundle['footer.label.company-name']}</p>
+          <p>#{bundle['footer.label.company-address']}</p>
+          <p>#{bundle['footer.label.support-mobile']}: <h:outputText value="#{bundle['company.hotline']}"/></p> 
+        </td>
+        <td class="address" align="right">
+          <p>#{bundle['footer.label.coppy-right']}</p>
+          <p>#{bundle['footer.label.screen-solution-suggestion']}</p>
+          <p>#{bundle['footer.label.web-browser-suggestion']}</p> 
+        </td>
+      </tr>
+    </table>
+  </div>
+  </ui:composition>
+</h:body>
+</html>

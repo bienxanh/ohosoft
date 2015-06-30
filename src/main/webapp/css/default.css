@@ -1,0 +1,293 @@
+.info {
+	color:blue;
+}
+
+.error {
+	color:red;
+}
+
+.editUserTable {
+}
+
+.editUserTable tr {
+	height: 35px;
+	padding-top: 3px;
+}
+
+.miniCalendarInput input {
+	width: 75px;
+}
+
+.viewButton {
+	background: url(../images/icon/view.png) no-repeat top !important;
+	width: 25px !important;
+	height: 25px !important;
+	left: 0% !important;
+	top: 0% !important;
+	margin-left: 0px !important;
+	margin-top: 0px !important;
+}
+
+.editButton {
+	background: url(../images/icon/edit.png) no-repeat top !important;
+	width: 32px !important;
+	height: 32px !important;
+	left: 0% !important;
+	top: 0% !important;
+	margin-left: 0px !important;
+	margin-top: 0px !important;
+}
+
+.deleteButton {
+  background: url(../images/icon/delete.png) no-repeat top !important;
+  width: 32px !important;
+  height: 32px !important;
+  left: 0% !important;
+  top: 0% !important;
+  margin-left: -2px !important;
+  margin-top: -1px !important;
+}
+
+.disableButton {
+	background: url(../images/icon/disable.png) no-repeat top !important;
+	width: 32px !important;
+	height: 32px !important;
+	left: 0% !important;
+	top: 0% !important;
+	margin-left: 0px !important;
+	margin-top: 0px !important;
+}
+
+/* FOOTER */
+#footer {
+  clear: both;
+  width: 100%;
+  position: relative;
+  margin: 10px auto 0 auto;
+  font-family: Arial, Helvetica, Verdana, sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+#footer .address {
+  background:#e0e0e0;
+  font-size:10px;
+  color:#747474;
+  line-height:15px;
+}
+
+#footer ul {
+  list-style: none;
+}
+
+#footer ul li {
+  float: left;
+  line-height: 1.81em;
+  margin: 12px 0 12px;
+  padding: 0 0 0 16px
+}
+
+#footer .copyright{
+  background:#e0e0e0;
+  position:absolute;
+  top:80px;right:15px;
+  color:#747474;
+  font-size:10px;
+}
+
+/* HEADER */
+#header {
+  background: url(../images/logo.png) left bottom no-repeat;
+  position: relative;
+  height: 70px;
+  width: 460px;
+  bottom:0px;
+  left:0px;
+}
+
+#header-app-info {
+  /*background: url(../images/logo.png) right bottom no-repeat;*/
+  position: absolute;
+  height: 70px;
+  width: 498px;
+  top: 0px;
+  right: 190px;
+}
+
+.left {
+  width:200px;
+  float:left;
+  margin:10px 0px 0px 0px;
+}
+
+.primary {
+  margin:10px 0px 0px 0px;
+  float:left;
+  width:750px;
+  position:relative;
+}
+
+h2.title {
+  font-size: 24px;
+  color: #0186bf;
+  border-bottom: 1px dotted #ababab;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+h3.title {
+  font-size: 18px;
+  color: #0186bf;  
+  text-align: right;
+  margin-top: 30px;
+}
+
+h4.version {
+  font-size: 14px;
+  color: #0186bf;
+  margin-top: -15px;
+  text-align: right;
+}
+
+.mainContent {
+  line-height: 15px;
+  padding-bottom: 20px;
+  color: #424242;
+}
+
+#main {
+  padding-bottom: 51px;
+}
+
+.clearfix {
+  display: block;
+}
+
+.list_cate {
+}
+
+.list_cate h2 {
+  background:url(../images/bgTitleCate.png) no-repeat 0px 0px;
+  width:170px;height:30px;line-height:30px;
+  margin-left:-10px;
+  padding-left:30px;
+  font-size:12px;
+  padding-top: 3px;
+}
+
+.list_cate ul {
+  margin:5px 0px 0px 10px;
+  width:170px;
+  list-style: none;
+  padding-left: 0px;
+}
+
+.list_cate ul li {
+  border-bottom:1px dotted #ababab;
+  padding:7px 0px;
+}
+
+.list_cate ul li a, .list_cate ul li span {
+  color:#232323;
+  text-decoration:none;
+  margin-left:9px;
+}
+
+.list_cate ul li a:hover {
+  color:#0098dc;
+  font-weight:bold;
+}
+
+#container {
+  min-height: 100%;
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding-bottom: 0px;
+  width: 960px;
+}
+
+.button {
+	margin: 0px 3px 0px 3px;
+}
+
+.no_dot {
+	border-bottom: none !important;
+	padding-bottom: 0px !important;
+}
+
+body {
+  color: #333333;
+  background: url(../images/background.gif) #edf5f9 center repeat-y;
+  font-family: Arial, Verdana, sans-serif, Helvetica;
+  font-size: 8pt;
+}
+
+td {
+  padding: 1px 1px;
+  vertical-align: middle;
+}
+
+input:disabled {
+	opacity: 0.75 !important;
+}
+
+/* Css to overwrite css of primefaces*/
+.ui-dialog .ui-dialog-content {
+	overflow: hidden !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+  text-align: center !important;
+}
+
+.ui-widget-content .ui-state-disabled {
+	opacity: 0.75 !important;
+  filter: Alpha(Opacity=75) !important;
+}
+
+form#faq_form .back-to-top {
+	border: 0;
+	margin: 0px 3px -5px 0px;
+}
+
+.dialog-wrap {
+	width: 400px;
+	height: 200px;
+	overflow: auto;
+	border: 1px solid lightgray;
+}
+
+.phanloai {
+	font-weight:bold;
+	font-size: medium; 
+	margin-top: 10px;
+	border-bottom: 1px dotted #ababab;
+}
+
+li .no-bullet {
+	list-style-type: none;
+}
+
+/* Css for menu bar */
+ .rightMenuBar_ext {
+	border: 0px solid rgb(168, 168, 168);
+	background: none repeat scroll 0% 0% rgb(255, 255, 255);
+	color: rgb(79, 79, 79);
+	text-align: right;
+	float:right;
+}
+/*End Css for menu bar*/
+
+#nonAjaxLoad {
+    /* some styles to position the modal at the center of the page */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    text-align: center;  
+    /* needed styles for the overlay */
+    z-index: 10; /* keep on top of other elements on the page */
+    outline: 9999px solid rbga(0,0,0,0.5);
+}

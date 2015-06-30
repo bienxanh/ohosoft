@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+  <composite:attribute name="popupId" default="SearchPopup" />
+  <composite:attribute name="value" type="org.primefaces.model.LazyDataModel" />
+  <composite:attribute name="title" default="#{bundle['searchPopup.policy-title']}" />
+  <composite:attribute name="widgetVar" default="SearchPopup" />
+  <composite:attribute name="callbackBean" required="true" type="com.aviva.bean.PolicyItem" />
+  <composite:attribute name="callbackListener" type="com.aviva.bean.component.ItemSelectedCallback" />
+  <composite:attribute name="addNewButtonLabel" default="#{bundle['searchPopup.label.client-add-button']}" />
+  <composite:attribute name="searchLabel" default="#{bundle['searchPopup.label.policy-search-box']}" />
+</composite:interface>
+
+<composite:implementation>
+  <p:dialog id="#{cc.attrs.popupId}" header="#{cc.attrs.title}" widgetVar="#{cc.attrs.widgetVar}" modal="true" style="position: fixed;">
+    <h:form prependId="false">
+      <div>
+        <div>
+
+          <div align="right">
+            <div style="margin-bottom: 5px;">
+              <p:inputText id="searchText" value="#{policySearch.searchText}"/>
+              <p:commandButton widgetVar="searchBtn" id="searchButton" styleClass="button" value="#{cc.attrs.searchLabel}" actionListener="#{policySearch.searchAction}"
+                               update="@widgetVar(PolicyDataArea)" onclick="searchBtn.disable()" oncomplete="searchBtn.enable()"/>
+            </div>
+            <p:panel widgetVar="PolicyDataArea" id="PolicyDataArea" >
+              <p:dataTable id="policyDataTable" var="row" value="#{cc.attrs.value}" widgetVar="policyDataTable" paginator="true" rows="10" lazy="true" selection="#{policySearch.selectedPolicy}" selectionMode="single" emptyMessage="#{bundle['global.msg.data-table-empty']}">
+                <p:ajax event="rowSelect" listener="#{policySearch.onRowSelect(cc.attrs.callbackBean, cc.attrs.callbackListener)}" oncomplete="PF('#{cc.attrs.widgetVar}').hide();"/>
+                <p:column headerText="#{bundle['cancelProposal.label.proposal-id']}">
+                  <h:outputText value="#{row.policy.policyNo}" />
+                </p:column>
+
+                <p:column headerText="#{bundle['cancelProposal.label.account']}">
+                  <h:outputText value="#{row.partnerContract.accountNumber}" />
+                </p:column>
+                
+                <p:column headerText="#{bundle['cancelProposal.label.assured']}" >
+                  <h:outputText value="#{row.customer.policyOwnerClient.name}" rendered="#{row.customer.client}"/>
+                  <h:outputText value="#{row.customer.policyOwnerCorporation.name}" rendered="#{row.customer.corporation}"/>
+                </p:column>
+                
+                <p:column headerText="#{bundle['cancelProposal.label.life-assured']}">
+                  <h:outputText value="#{row.lifeAssured.name}" />
+                </p:column>
+                
+                <p:column headerText="#{bundle['proposal.label.pid']}">
+                  <h:outputText value="#{row.lifeAssured.pid}" />
+                </p:column>
+
+                <p:column headerText="#{bundle['cancelProposal.label.bank']}">
+                  <h:outputText value="#{row.partnerContract.org.org.name}" />
+                </p:column>
+
+                <p:column headerText="#{bundle['cancelProposal.label.branch']}">
+                  <h:outputText value="#{row.partnerContract.org.name}" />
+                </p:column>
+
+                <p:column headerText="#{bundle['cancelProposal.label.status']}">
+                  <h:outputText value="#{global.getPolicyStatusLabel(row.policy.status)}"/>
+                </p:column>
+              </p:dataTable>
+            </p:panel>
+          </div>
+        </div>
+      </div>
+    </h:form>
+  </p:dialog>
+</composite:implementation>
+</html>

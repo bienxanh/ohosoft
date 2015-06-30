@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="success::#index.xhtml?faces-redirect=true"
+    NAME="output" PATH="/index.xhtml?faces-redirect=true"
+    TARGET="rules:#index.xhtml?faces-redirect=true" TITLE="success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#*" PATH="/*" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:0" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="createIndividualClient::#clms#createIndividualClient.xhtml?faces-redirect=true"
+    NAME="output"
+    PATH="/clms/createIndividualClient.xhtml?faces-redirect=true"
+    TARGET="rules:#clms#createIndividualClient.xhtml?faces-redirect=true"
+    TITLE="createIndividualClient" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#*:1" PATH="/*" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:1" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="createCorporationClient::#clms#createCorporationClient.xhtml?faces-redirect=true"
+    NAME="output"
+    PATH="/clms/createCorporationClient.xhtml?faces-redirect=true"
+    TARGET="rules:#clms#createCorporationClient.xhtml?faces-redirect=true"
+    TITLE="createCorporationClient" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#*:2" PATH="/*" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:2" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="createPolicy101::#clms#101subscribeProposal.xhtml?faces-redirect=true"
+    NAME="output"
+    PATH="/clms/101subscribeProposal.xhtml?faces-redirect=true"
+    TARGET="rules:#clms#101subscribeProposal.xhtml?faces-redirect=true"
+    TITLE="createPolicy101" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#*:3" PATH="/*" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:3" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="createPolicy102::#clms#102subscribeProposal.xhtml?faces-redirect=true"
+    NAME="output"
+    PATH="/clms/102subscribeProposal.xhtml?faces-redirect=true"
+    TARGET="rules:#clms#102subscribeProposal.xhtml?faces-redirect=true"
+    TITLE="createPolicy102" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#*:4" PATH="/*" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:4" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="HOME::#index.jsf?faces-redirect=true"
+    NAME="output" PATH="/index.jsf?faces-redirect=true"
+    TARGET="rules:#index.jsf?faces-redirect=true" TITLE="HOME" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#clms#createIndividualClient.xhtml?faces-redirect=true"
+  PATH="/clms/createIndividualClient.xhtml?faces-redirect=true"
+  SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#clms#createCorporationClient.xhtml?faces-redirect=true"
+  PATH="/clms/createCorporationClient.xhtml?faces-redirect=true"
+  SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#clms#101subscribeProposal.xhtml?faces-redirect=true"
+  PATH="/clms/101subscribeProposal.xhtml?faces-redirect=true"
+  SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#clms#102subscribeProposal.xhtml?faces-redirect=true"
+  PATH="/clms/102subscribeProposal.xhtml?faces-redirect=true"
+  SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#index.jsf?faces-redirect=true"
+  PATH="/index.jsf?faces-redirect=true" SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#index.xhtml?faces-redirect=true"
+  PATH="/index.xhtml?faces-redirect=true" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

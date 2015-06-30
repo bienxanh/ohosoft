@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:h="http://java.sun.com/jsf/html" 
+  xmlns:f="http://java.sun.com/jsf/core" 
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+  <link href="#{request.contextPath}/css/default.css" rel="stylesheet" type="text/css"/>
+  <h:outputScript library="js" name="default.js" />
+  <title>
+    <ui:insert name="title" >
+      #{bundle['default.title']}
+    </ui:insert>
+  </title>
+</h:head>
+<h:body>
+<h:outputScript library="js" name="subcribeProposalv1.js" />
+  <div id="nonAjaxLoad">
+    <p:graphicImage value="/images/loading.gif" />
+  </div>
+  <div id="container">
+    <ui:insert name="header" >
+      <ui:include src="Header.xhtml" />
+    </ui:insert>
+    
+    <ui:insert name="menu" >
+      <ui:include src="Menu.xhtml" />
+    </ui:insert>
+    
+    <div id="content" class="primary">
+      <ui:insert name="content" >
+      </ui:insert>
+    </div>
+    
+    <p:ajaxStatus style="width:32px; height:32px; position:fixed; top:40%; left:50%">
+      <f:facet name="start">
+          <p:graphicImage value="/images/loading.gif" />
+      </f:facet>
+    </p:ajaxStatus>
+  
+    <ui:insert name="footer" >
+      <ui:include src="Footer.xhtml" />
+    </ui:insert>
+  </div>
+</h:body>
+</html>

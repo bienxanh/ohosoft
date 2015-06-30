@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags">
+
+<h:body>
+	<ui:composition>
+		<div id="menu" class="left">
+			<div class="list_cate">
+				<h2>#{bundle['header.label.app-name']} #{global.appVersion}</h2>
+				<ul class="menuList">
+
+					<sec:ifAnyGranted
+						roles="MENU_CREATE_INDIVIDUAL_CLIENT, MENU_CREATE_CORPORATION_CLIENT">
+						<li class="menubar"><a href="#" class="actuator"><b>#{bundle['menu.label.client']}</b></a>
+							<ul class="menuList">
+								<sec:ifAnyGranted roles="MENU_CREATE_INDIVIDUAL_CLIENT">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.create-individual-client']}"
+											outcome="/clms/createIndividualClient" class="actuator" /></li>
+								</sec:ifAnyGranted>
+
+								<sec:ifAnyGranted roles="MENU_CREATE_CORPORATION_CLIENT">
+									<li class="menubar no_dot"><h:link
+											value="#{bundle['menu.label.create-corporation-client']}"
+											outcome="/clms/createCorporationClient" class="actuator" /></li>
+								</sec:ifAnyGranted>
+							</ul></li>
+					</sec:ifAnyGranted>
+					<sec:ifAnyGranted
+						roles="MENU_SUBCRIBE_PROPOSAL, 
+        			MENU_CANCEL_PROPOSAL, 
+        			MENU_ADVANCED_UW, 
+        			MENU_ISSUE_POLICY, 
+        			MENU_REPRINT_LETTER, 
+        			MENU_UPDATE_POLICY_INFO,
+        			MENU_SUPPRESS_OVERDUE_POLICY,
+        			MENU_FIND_AND_DOWNLOAD_LAPSED_POLICY,
+        			 MENU_SEARCH_AND_DOWNLOAD_VOID_LETTER,
+        			 MENU_SEARCH_AND_DOWNLOAD_VOID_LETTER
+        			">
+						<li class="menubar"><a href="#" class="actuator"><b>#{bundle['menu.label.proposal']}</b></a>
+							<ul class="menuList">
+								<sec:ifAnyGranted roles="MENU_SUBCRIBE_PROPOSAL">
+									<li class="menubar"><a href="#" class="actuator">#{bundle['menu.label.subscribe-proposal']}</a>
+										<ul class="menuList">
+											<li class="menubar"><h:link
+													value="#{bundle['menu.label.subscribe-proposal-creditlife']}"
+													outcome="/clms/101subscribeProposal" class="actuator" /></li>
+											<!-- <li class="menubar no_dot">
+                      <h:link value="102-BHTD Gói Ưu Đãi" outcome="/clms/102subscribeProposal" class="actuator" />
+                    </li> -->
+										</ul></li>
+								</sec:ifAnyGranted>
+								<!-- <sec:ifAnyGranted roles="MENU_UPDATE_PROPOSAL_INFO">
+              <li class="menubar"><h:link value="#{bundle['menu.label.update-proposal']}" outcome="/clms/updateProposal" class="actuator" /></li>
+            </sec:ifAnyGranted> -->
+
+								<sec:ifAnyGranted roles="MENU_ISSUE_POLICY">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.issue-policy']}"
+											outcome="/clms/issuePolicy" class="actuator" /></li>
+								</sec:ifAnyGranted>
+
+								<sec:ifAnyGranted roles="MENU_REPRINT_LETTER">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.reprint-letter']}"
+											outcome="/clms/reprintLetter" class="actuator" /></li>
+								</sec:ifAnyGranted>
+
+								<sec:ifAnyGranted roles="MENU_ADVANCED_UW">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.advanced-UW']}"
+											outcome="/clms/advancedUW" class="actuator" /></li>
+								</sec:ifAnyGranted>
+
+								<sec:ifAnyGranted roles="MENU_CANCEL_PROPOSAL">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.cancel-proposal']}"
+											outcome="/clms/cancelProposal" class="actuator" /></li>
+								</sec:ifAnyGranted>
+
+								<sec:ifAnyGranted
+									roles="MENU_MODIFY_POLICY_INFO_NB, MENU_MODIFY_POLICY_INFO_OP">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.modifyPolicyInformation']}"
+											outcome="/clms/modifyPolicyInformation" class="actuator" /></li>
+								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="MENU_MODIFY_CLIENT_INFO">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.update-individual-client']}"
+											outcome="/clms/modifyClientInfo" class="actuator" /></li>
+								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="MENU_CHECK_IN_DOCUMENT">
+									<li class="menubar "><h:link
+											value="#{bundle['menu.label.check-in-document']}"
+											outcome="/clms/checkInDocument" class="actuator" /></li>
+								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="MENU_FIND_AND_DOWNLOAD_LAPSED_POLICY">
+									<li class="menubar "><h:link
+											value="#{bundle['menu.label.title.find.and.download.lapsedpolicy']}"
+											outcome="/clms/findAndDownloadLapsedPolicy" class="actuator" /></li>
+								</sec:ifAnyGranted>
+
+								<sec:ifAnyGranted roles="MENU_VOID_POLICY">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.voidPolicy']}"
+											outcome="/clms/voidPolicy" class="actuator" /></li>
+								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="MENU_SEARCH_AND_DOWNLOAD_VOID_LETTER">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.searchAndDownloadVoidLetter']}"
+											outcome="/clms/searchAndDownloadVoidLetter" class="actuator" />
+									</li>
+								</sec:ifAnyGranted>
+
+
+								<sec:ifAnyGranted roles="MENU_SEARCH_AND_DOWNLOAD_MATURITY">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.search-and-download-maturity']}"
+											outcome="/clms/searchAndDownloadMaturedPolicy"
+											class="actuator" /></li>
+								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="MENU_REVIEW_POLICY_CHANGE">
+									<li class="menubar no_dot"><h:link
+											value="#{bundle['review.policy.change.title']}"
+											outcome="/clms/reviewPolicyChanges" class="actuator" /></li>
+								</sec:ifAnyGranted>
+							</ul></li>
+					</sec:ifAnyGranted>
+
+					<!-- Phan menu cho quan ly thu phi -->
+					<sec:ifAnyGranted
+						roles="MENU_ALLOCATE_PREMIUM_TO_POLICY,MENU_ALLOCATE_PREMIUM_TO_POLICY,MENU_SEARCH_ALLOCATE_PREMIUM_TO_BILL,MENU_IMPORT_MONEY_TRANSFER,MENU_SEARCH_MONEY_TRANSFER">
+						<li class="menubar"><a href="#" class="actuator"><b>#{bundle['menu.collection-premium.title']}</b></a>
+							<ul class="menuList">
+								<sec:ifAnyGranted roles="MENU_IMPORT_MONEY_TRANSFER">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.import-money-transfer']}"
+											outcome="/clms/importMoneyTransferFromExcel" class="actuator" />
+									</li>
+								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="MENU_SEARCH_MONEY_TRANSFER">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.serch-money-transfer']}"
+											outcome="/clms/searchUploadMoneyTransfer" class="actuator" /></li>
+								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="MENU_ALLOCATE_PREMIUM_TO_POLICY">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.allocate-premium-to-policy']}"
+											outcome="/clms/allocatePremiumToPolicy" class="actuator" />
+									</li>
+								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="MENU_SEARCH_ALLOCATE_PREMIUM_TO_BILL">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.search-allocate-premium-to-policybill']}"
+											outcome="/clms/searchAllocatePremiumToPolicyBill"
+											class="actuator" /></li>
+								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="MENU_SUPPRESS_OVERDUE_POLICY">
+									<li class="menubar "><h:link
+											value="#{bundle['menu.label.title.suppress-overdue-processing']}"
+											outcome="/clms/suppressOverdueProcessing" class="actuator" /></li>
+								</sec:ifAnyGranted>
+							</ul></li>
+					</sec:ifAnyGranted>
+
+
+					<!-- Phan menu cho quan ly claim -->
+					<sec:ifAnyGranted
+							roles="MENU_CREATE_CLAIM_REQUEST, MENU_ASSESS_CLAIM_REQUEST, MENU_SEARCH_AND_DOWNLOAD_CLAIM_LETTER">
+						<li class="menubar"><a href="#" class="actuator"><b>#{bundle['menu.claim.title']}</b></a>
+							<ul class="menuList">
+								<sec:ifAnyGranted roles="MENU_CREATE_CLAIM_REQUEST">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.createClaimRequest']}"
+											outcome="/clms/createClaimRequest" class="actuator" /></li>
+								</sec:ifAnyGranted>
+
+								<sec:ifAnyGranted roles="MENU_ASSESS_CLAIM_REQUEST">
+									<li class="menubar"><h:link
+											value="#{bundle['assess.claim.menu.title']}"
+											outcome="/clms/assessClaimRequest" class="actuator" /></li>
+								</sec:ifAnyGranted>
+
+								<sec:ifAnyGranted roles="MENU_SEARCH_AND_DOWNLOAD_CLAIM_LETTER">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.search-and-download-claim-letter']}"
+											outcome="/clms/searchAndDownloadClaimLetter"
+											class="actuator" /></li>
+								</sec:ifAnyGranted>
+							</ul></li>
+					</sec:ifAnyGranted>
+
+					<!-- End Phan menu cho quan ly thu phi -->
+
+					<sec:ifAnyGranted roles="MENU_PAYMENT">
+						<li class="menubar"><a href="#" class="actuator"><b>#{bundle['menu.payment.title']}</b></a>
+							<ul class="menuList">
+								<sec:ifAnyGranted roles="MENU_CREATE_PAYMENT_VOUCHER">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.create.payment.voucher']}"
+											outcome="/clms/createPaymentVoucher" class="actuator" /></li>
+								</sec:ifAnyGranted>
+								<sec:ifAnyGranted roles="MENU_MANAGE_PAYMENT_VOUCHER">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.manage.payment.voucher']}"
+											outcome="/clms/managePaymentVoucher" class="actuator" /></li>
+								</sec:ifAnyGranted>
+							</ul></li>
+					</sec:ifAnyGranted>
+
+					<sec:ifAnyGranted roles="MENU_IMPORT_MAJOR_CHANGES">
+						<li class="menubar"><h:link
+								value="#{bundle['menu.label.import-major-changes']}"
+								outcome="/clms/importMajorChanges" class="actuator" /></li>
+					</sec:ifAnyGranted>
+					<sec:ifAnyGranted roles="MENU_IMPORT_USER_FROM_EXCEL">
+						<li class="menubar"><h:link
+								value="#{bundle['menu.label.import-user-from-excel']}"
+								outcome="/clms/importUserFromExcel" class="actuator" /></li>
+					</sec:ifAnyGranted>
+					<sec:ifAnyGranted roles="MENU_GRANT_ROLE">
+						<li class="menubar"><h:link
+								value="#{bundle['menu.label.grant-role-to-user']}"
+								outcome="/clms/grantRole.xhtml" class="actuator" /></li>
+					</sec:ifAnyGranted>
+					<sec:ifAnyGranted roles="MENU_TRIGGER_BATCH_JOB">
+						<li class="menubar"><h:link
+								value="#{bundle['menu.label.trigger-batch-job']}"
+								outcome="/clms/triggerBatchJob.xhtml" class="actuator" /></li>
+					</sec:ifAnyGranted>
+					<sec:ifAnyGranted roles="MENU_MANAGE_PRODUCT_BRANCH">
+						<li class="menubar"><h:link
+								value="#{bundle['menu.label.manage-product-plan']}"
+								outcome="/clms/manageProductBranch.xhtml" class="actuator" /></li>
+					</sec:ifAnyGranted>
+					<!-- <sec:ifAnyGranted roles="MENU_CHANGE_PASSWORD">
+          <li class="menubar"><h:link value="#{bundle['menu.label.change-password']}" outcome="/clms/changePassword.xhtml" class="actuator" /></li>
+        </sec:ifAnyGranted> -->
+
+					<sec:ifAnyGranted
+						roles="MENU_VIEW_OP_REPORT,MENU_VIEW_BANCAS_REPORT">
+						<li class="menubar"><a href="#" class="actuator"><b>#{bundle['menu.label.view-clms-report']}</b></a>
+							<sec:ifAnyGranted roles="MENU_VIEW_OP_REPORT">
+								<ul class="menuList">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.view-op-daily-report']}"
+											outcome="/clms/opDailyReport" class="actuator" /></li>
+								</ul>
+							</sec:ifAnyGranted> <sec:ifAnyGranted roles="MENU_VIEW_BANCAS_REPORT">
+								<ul class="menuList">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.view-bancas-report']}"
+											outcome="/clms/bancasDailyReport" class="actuator" /></li>
+								</ul>
+							</sec:ifAnyGranted> <sec:ifAnyGranted roles="MENU_LIST_PRODUCT_BRANCH">
+								<ul class="menuList">
+									<li class="menubar"><h:link
+											value="#{bundle['menu.label.list-product-plan']}"
+											outcome="/clms/listProductBranch" class="actuator" /></li>
+								</ul>
+							</sec:ifAnyGranted></li>
+					</sec:ifAnyGranted>
+
+					<sec:ifAnyGranted roles="MENU_SEARCH_AND_DOWNLOAD_INVOICE">
+						<li class="menubar"><h:link
+								value="#{bundle['menu.label.searchAndDownloadInvoice']}"
+								outcome="/clms/searchAndDownloadInvoice" class="actuator" /></li>
+					</sec:ifAnyGranted>
+					<sec:ifAnyGranted roles="MENU_SUPPORT_RESPONSE">
+						<li class="menubar"><h:link
+								value="#{bundle['menu.label.support-online-res']}"
+								outcome="/clms/supportResponse.xhtml" class="actuator" /></li>
+					</sec:ifAnyGranted>
+
+					<sec:ifAnyGranted roles="MENU_SUPPORT_REQUEST">
+						<li class="menubar"><h:link
+								value="#{bundle['menu.label.support-online']}"
+								outcome="/clms/support.xhtml" class="actuator" /></li>
+					</sec:ifAnyGranted>
+
+					<sec:isAuthenticated>
+			        	<li class="menubar"><h:link value="#{bundle['menu.label.faq']}" outcome="/clms/faq.xhtml" class="actuator" /></li>
+					</sec:isAuthenticated>
+
+				</ul>
+			</div>
+		</div>
+	</ui:composition>
+</h:body>
+</html>

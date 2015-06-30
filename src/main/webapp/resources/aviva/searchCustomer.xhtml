@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:h="http://java.sun.com/jsf/html" 
+  xmlns:f="http://java.sun.com/jsf/core" 
+  xmlns:p="http://primefaces.org/ui" 
+  xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+  <composite:attribute name="popupId" default="SearchPopup"/>
+  <composite:attribute name="title" default="#{bundle['searchPopup.client-title']}"/>
+  <composite:attribute name="widgetVar" default="SearchPopup"/>
+  <composite:attribute name="callbackListener" type="com.aviva.bean.component.ActionCallbackListener"/>
+  <composite:attribute name="callbackBean" required="true" type="com.aviva.bean.component.Customer"/>
+  <composite:attribute name="addNewButtonLabel" default="#{bundle['searchPopup.label.client-add-button']}"/>
+  <composite:attribute name="searchLabel" default="#{bundle['searchPopup.label.client-search-box']}"/>
+</composite:interface>
+
+<composite:implementation>
+  <p:dialog id="#{cc.attrs.popupId}" header="#{cc.attrs.title}" widgetVar="#{cc.attrs.widgetVar}" modal="true" style="position: fixed;">
+    <h:form>
+      <div>
+        <div>
+          <div align="right">
+            <div style="margin-bottom: 5px;">
+              <p:inputText id="searchText" value="#{customerSearch.searchText}"/>
+              <p:commandButton styleClass="button" value="#{cc.attrs.searchLabel}" actionListener="#{customerSearch.searchAction}" update="@widgetVar(DataArea)"/>
+            </div>
+            
+            <div>
+              <p:selectOneRadio id="options" value="#{customerSearch.customerType}">
+                <f:selectItem itemLabel="Khách hàng" itemValue="Client"/>
+                <f:selectItem itemLabel="Tổ chức" itemValue="Corporation"/>
+                <p:ajax event="change" execute="@this" update="@widgetVar(DataArea)"/>
+              </p:selectOneRadio>  
+            </div>
+              
+            <p:panel widgetVar="DataArea" id="DataArea">
+              <h:panelGroup id="clientArea" rendered="#{customerSearch.displayClient}">
+                <p:dataTable id="clientDataTable" var="row" value="#{customerSearch.client}" widgetVar="clientDataTable" paginator="true" rows="10" lazy="true" selection="#{customerSearch.selectedClient}" selectionMode="single" emptyMessage="#{bundle['global.msg.data-table-empty']}">
+                  <p:ajax event="rowSelect" listener="#{customerSearch.onRowSelect(cc.attrs.callbackBean, cc.attrs.callbackListener)}" oncomplete="PF('#{cc.attrs.widgetVar}').hide();"/>
+                  
+                  <p:column headerText="#{bundle['client.label.full-name']}">
+                    <h:outputText value="#{row.data.name}" />
+                  </p:column>
+                  
+                  <p:column headerText="#{bundle['client.label.pid']}">
+                    <h:outputText value="#{row.data.pid}" />
+                  </p:column>
+                  
+                  <p:column headerText="#{bundle['corporation.label.CIF-code-in-core-bank']}">
+                    <h:outputText value="#{row.data.cifCode}" />
+                  </p:column>
+                  
+                  <p:column headerText="#{bundle['client.label.gender']}">
+                    <h:outputText value="#{row.data.gender == 'M' ? bundle['client.label.male'] : bundle['client.label.female']}" />
+                  </p:column>
+                  
+                  <p:column headerText="#{bundle['client.label.dob']}">
+                    <h:outputText value="#{row.data.dob}">
+                      <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                  </p:column>
+                </p:dataTable>
+              </h:panelGroup>
+              
+              <h:panelGroup id="corporationArea" rendered="#{customerSearch.displayCorporation}">
+                <p:dataTable id="corporationDataTable" var="row" value="#{customerSearch.corporation}" widgetVar="corporationDataTable" paginator="true" rows="10" lazy="true" selection="#{customerSearch.selectedCorporation}" selectionMode="single">
+                  <p:ajax event="rowSelect" listener="#{customerSearch.onRowSelect(cc.attrs.callbackBean)}" oncomplete="PF('#{cc.attrs.widgetVar}').hide();" />
+                  
+                  <p:column headerText="#{bundle['corporation.label.CIF-code-in-core-bank']}">
+                    <h:outputText value="#{row.data.cifCode}" />
+                  </p:column>
+                  
+                  <p:column headerText="#{bundle['corporation.label.name']}">
+                    <h:outputText value="#{row.data.name}" />
+                  </p:column>
+                  
+                  <p:column headerText="#{bundle['corporation.label.license-no']}">
+                    <h:outputText value="#{row.data.licenseNo}" />
+                  </p:column>
+                  
+                  <p:column headerText="#{bundle['corporation.label.license-date']}">
+                    <h:outputText value="#{row.data.licenseDate}">
+                      <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                  </p:column>
+                </p:dataTable>
+              </h:panelGroup>
+            </p:panel>
+          </div>
+          
+          <table width="100%">
+            <tbody>
+              <tr>
+                <td align="right"><p:commandButton action="#{customerSearch.addNewAction}" value="#{cc.attrs.addNewButtonLabel}"/></td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </h:form>
+  </p:dialog>
+</composite:implementation>
+</html>
