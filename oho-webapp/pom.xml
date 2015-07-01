@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.oho</groupId>
-	<artifactId>ohosoft</artifactId>
+	<artifactId>oho-webapp</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
-	<name>ohosoft</name>
+	<name>oho-webapp</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.target.version>1.7</java.target.version>
@@ -34,6 +34,11 @@
 		<port>9999</port>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>com.oho</groupId>
+			<artifactId>oho-services</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<!-- Spring framework -->
 		<dependency>
 			<groupId>org.springframework</groupId>

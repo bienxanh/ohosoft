@@ -5,7 +5,10 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources/common"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources/local"/>
+        <dependent-module archiveName="oho-services-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oho-services/oho-services">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/thu-chi-webapp/target/classes"/>
-        <property name="context-root" value="ohosoft"/>
+        <property name="context-root" value="oho-webapp"/>
     </wb-module>
 </project-modules>
