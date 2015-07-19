@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:h="http://java.sun.com/jsf/html" 
+  xmlns:f="http://java.sun.com/jsf/core" 
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:util="http://java.sun.com/jsf/composite/aviva">
+
+<h:body>
+  <ui:composition template="/template/Layout.xhtml">
+    <ui:define name="title">
+      #{bundle['nhappho.page.title']}
+    </ui:define>
+  
+    <ui:define name="content">
+      <h1>#{bundle['nhappho.page.title']}</h1>
+      <!-- Put the content of page here -->
+      <h:form id="nhap-pho-form">
+      	<p:growl id="growl" sticky="true" autoUpdate="true"/>
+   		<p:panel id="custInfoPanel" header="#{bundle['nhappho.thongtin-pho-panel']}">
+   			<table class="editUserTable" style="width: 100%;">
+   				<tbody>
+   					<tr>
+                  	  <td><div style="width: 150px;"><h:outputText value="#{bundle['nhappho.ngaynhap.label']}"/>:<font color="red">*</font></div></td>
+	                  <td>
+	                  	<p:calendar id="dob" value="#{nhapPho.data.ngayNhap}" pattern="dd/MM/yyyy" navigator="true" showButtonPanel="true" showOn="button" 
+				              						required="true" 
+				              						requiredMessage="#{bundle['form.required.message']}" tabindex="1">
+				              		<f:convertDateTime pattern="dd/MM/yyyy" />
+    				  	</p:calendar>    	 
+	                  </td>
+	                </tr>
+   					<tr>
+                  	  <td><div style="width: 150px;"><h:outputText value="#{bundle['nhappho.soxe.label']}"/>:<font color="red">*</font></div></td>
+	                  <td>
+	                  	<p:inputText value="#{nhapPho.data.soXe}" 
+				              			required="true" requiredMessage="#{bundle['form.required.message']}" 
+				              			maxlength="120" tabindex="2">
+		              	</p:inputText>	   	 
+	                  </td>
+	                </tr>
+   				</tbody>
+   			</table>
+   		
+   		</p:panel>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+</h:body>
+</html>
